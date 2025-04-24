@@ -1,0 +1,13 @@
+{
+  "data": {
+  "key": "Welcome to ",
+  "title": "AeroSystem",
+  "description": "The smart airport management platform, connecting flights, aircraft, teams and finances.",
+  "employee": "Employee",
+  "passenger": "Passenger",
+  "airline": "Airline",
+  "Cashflow": "Cashflow",
+  "ticket": "Ticket",
+  "home": "Home"
+  }
+}

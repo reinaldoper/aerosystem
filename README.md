@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## ✈️ AeroSystem
 
-## Getting Started
+- Sistema de gerenciamento de companhia aérea desenvolvido com Next.js, com suporte a cadastro de aeronaves, visualização de frota, gestão de passageiros, funcionários, fluxo de caixa e tickets.
+- Projeto ainda em fase de construção.
 
-First, run the development server:
+---
+
+## Spoiler da aplicação abaixo
+
+[AeroSystem](./public/aeroPlane.gif)
+
+---
+
+## Backend da aplicação abaixo
+
+[airport](https://github.com/reinaldoper/airport-api)
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- Next.js
+
+- React
+
+- Tailwind CSS
+
+- TypeScript
+
+- Node.js
+
+- API REST
+
+---
+
+## 📦 Funcionalidades
+
+✅ Página de boas-vindas (Welcome)
+
+✅ Cadastro de novas aeronaves
+
+✅ Visualização de aeronaves cadastradas (com paginação)
+
+✅ Cadastro e visualização de passageiros
+
+✅ Cadastro e gerenciamento de funcionários
+
+✅ Compra e gerenciamento de tickets
+
+✅ Fluxo de caixa da companhia
+
+✅ Relógio dinâmico no cabeçalho
+
+---
+
+## 🧪 Instalação Local
+
+1. Clone o repositório:
 
 ```bash
+git clone https://github.com/seu-usuario/aerosystem.git
+&&
+cd aerosystem
+&&
+npm install
+&&
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+2. Acesse em http://localhost:3000
+
+---
+
+## 🗃️ Estrutura do Projeto
+
+```bash
+📁 src
+ ┣ 📂app                ← Rotas com estrutura do Next.js 13+
+ ┣ 📂components         ← Componentes reutilizáveis (header, forms, cards, etc.)
+ ┣ 📂service            ← Serviços de fetch para consumir APIs
+ ┣ 📂types              ← Tipagens TypeScript (ex: Plane, Passenger, etc.)
+ ┣ 📄globals.css        ← Estilização global com Tailwind
+ ┣ 📄layout.tsx         ← Layout padrão do sistema com header/footer
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🖼️ Preview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. 🏠 Página Inicial
 
-## Learn More
+2. 🛫 Cadastro de Aeronaves
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🐞 Problemas Conhecidos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Página de visualização de aeronaves ainda não possui filtros
 
-## Deploy on Vercel
+2. Melhorar feedback visual após adição de aeronave
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💡 Contribuições
+
+- Pull Requests são bem-vindos! Fique à vontade para abrir uma issue com sugestões ou bugs encontrados.

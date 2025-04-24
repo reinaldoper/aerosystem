@@ -1,0 +1,131 @@
+'use client';
+
+import Welcome from "@/components/welcome";
+import React, { useState, useEffect } from "react";
+import { fetchApiPlane, fetchApiPassenger } from "@/service/fetchAeroSystem";
+import { Plane } from "@/types/typePlane";
+
+const Page = () => {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [documentoIdentidade, setDocumentoIdentidade] = useState("");
+  const [planeId, setPlaneId] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [planes, setPlanes] = useState([] as Plane[]);
+
+  const handlePlanes = async () => {
+    const { data } = await fetchApiPlane();
+    setPlanes(data);
+  };
+
+  useEffect(() => {
+    handlePlanes();
+  },[]);
+
+  const handlePassenger = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const passenger = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nome,
+        email,
+        documentoIdentidade,
+        planeId,
+      }),
+    };
+    setLoading(true);
+    const { message, error } = await fetchApiPassenger(passenger);
+    if (message) {
+      setSuccess(message);
+      setNome("");
+      setEmail("");
+      setDocumentoIdentidade("");
+      setPlaneId(0);
+      setLoading(false);
+    }
+    if (error) {
+      setError(error);
+      setSuccess("");
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="relative bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
+      <div className="absolute inset-0 bg-[url('/passenger.png')] bg-cover bg-center opacity-35 z-0" />
+      <Welcome />
+      <div className="flex flex-col h-full px-6 py-31">
+        {success && <p className="text-green-500 flex justify-center items-center z-20">{success}</p>}
+        {error && (
+          <div className="bg-red-500 text-white p-4 rounded mb-4 flex justify-center items-center">{error}</div>
+        )}
+        {loading && (
+          <div className="flex justify-center items-center">
+            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+          </div>
+        )}
+        {planes.length > 0 ? (
+          <form
+            onSubmit={handlePassenger}
+            className="flex flex-col items-center h-full text-center px-6 py-1"
+          >
+            <input
+              required
+              type="text"
+              placeholder="Nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              className="mb-2.5 bg-emerald-500 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition z-10"
+            />
+            <input
+              required
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mb-2.5 bg-emerald-500 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition z-10"
+            />
+            <input
+              required
+              type="text"
+              placeholder="Documento de Identidade"
+              value={documentoIdentidade}
+              onChange={(e) => setDocumentoIdentidade(e.target.value)}
+              className="mb-2.5 bg-emerald-500 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition z-10"
+            />
+            <select
+              required
+              value={planeId}
+              onChange={(e) => setPlaneId(Number(e.target.value))}
+              className="mb-2.5 bg-emerald-500 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition z-10"
+            >
+              <option value="">Selecione o avião:</option>
+              {planes.map((plane: Plane) => (
+                <option key={plane.id} value={plane.id}>
+                  {plane.modelo}
+                </option>
+              ))}
+            </select>
+            <button
+              type="submit"
+              className="z-20 mb-20 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
+            >
+              🔑 Cadastrar Passageiro
+            </button>
+          </form>
+        ) : (
+          <div className="flex mb-7 flex-col items-center justify-center h-full text-center px-6 py-20">
+            <h1>⚠️ No momento, nenhuma aeronave cadastrada!</h1>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Page;
