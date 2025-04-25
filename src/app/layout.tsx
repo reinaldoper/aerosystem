@@ -33,7 +33,7 @@ export default function RootLayout({
 
   return (
     <html lang="pt-BR">
-      <body className="flex flex-col min-h-screen font-stretch-condensed">
+      <body className="flex flex-wrap flex-col min-h-screen font-stretch-condensed">
         <header className="bg-emerald-700 shadow-md">
           <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
             <h1 className="text-white text-xl font-semibold">{es ? language.title : "AeroSystem"}</h1>
