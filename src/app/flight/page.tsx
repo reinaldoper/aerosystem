@@ -4,10 +4,10 @@ import React from 'react'
 
 const Page = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
+    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
       <div className="absolute inset-0 bg-[url('/airport.png')] bg-cover bg-center opacity-35 z-0" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 py-20">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <Welcome />
       </div>
     </div>

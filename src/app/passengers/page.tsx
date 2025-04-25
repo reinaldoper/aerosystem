@@ -59,16 +59,16 @@ const Page = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
+    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
       <div className="absolute inset-0 bg-[url('/passenger.png')] bg-cover bg-center opacity-35 z-0" />
       <Welcome />
       <Link
         href="/passengers/passenger"
-        className="absolute top-4 left-48 text-white hover:text-emerald-100 transition-colors z-20"
+        className="absolute top-4 left-10 text-black hover:text-emerald-100 transition-colors z-20"
       >
         ☰ {es ? language.list_passengers : "Lista de Passageiros"}
       </Link>
-      <div className="flex flex-col h-full px-6 py-31">
+      <div className="flex flex-col h-full px-6">
         {success && <p className="text-green-500 flex justify-center items-center z-20">{success}</p>}
         {error && (
           <div className="bg-red-500 text-white p-4 rounded mb-4 flex justify-center items-center">{error}</div>

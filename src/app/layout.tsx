@@ -69,7 +69,7 @@ export default function RootLayout({
             </nav>
           </div>
         </header>
-        <main className="flex-grow">
+        <main className="flex-1">
           <LanguageProvider>
             {children}
           </LanguageProvider>

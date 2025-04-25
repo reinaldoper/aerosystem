@@ -15,12 +15,12 @@ import useLanguage from '@/service/context';
 export default function Home() {
   const { language, es } = useLanguage();
   return (
-    <div className="relative min-h-screen bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
+    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
       <div className="absolute inset-0 bg-[url('/airport.png')] bg-cover bg-center opacity-35 z-0" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 py-20">
+      <div className="relative z-10 flex flex-col flex-wrap items-center justify-center min-h-screen text-center px-6">
         <Welcome />
-        <div className="flex gap-6">
+        <div className="flex gap-6 flex-col flex-wrap">
           <Link
             href="/planes"
             className="bg-emerald-500 hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"

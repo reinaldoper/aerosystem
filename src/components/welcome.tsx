@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 
@@ -14,12 +14,11 @@ import useLanguage from "@/service/context";
  * @returns {JSX.Element} - A mensagem de boas-vindas.
  */
 
-
 const Welcome = () => {
   const { language, es, setLanguage, USA, BRAZIL } = useLanguage();
   return (
-    <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 py-20">
-      <h1 className="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">
+    <div className="relative z-20 flex flex-col items-center justify-center text-center px-6 overflow-x-hidden">
+      <h1 className="w-full max-w-full text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg break-words text-center">
         {es ? (
           <>
             {language.key}{" "}
@@ -31,11 +30,10 @@ const Welcome = () => {
           </>
         )}
       </h1>
-      <p className="text-xl md:text-2xl max-w-3xl text-emerald-100">
+      <p className="text-xl md:text-2xl max-w-3xl w-full text-emerald-100 break-words">
         {es
           ? language.description
-          : "A plataforma inteligente de gestão aeroportuária, conectando voos," +
-            "aeronaves, equipes e finanças."}
+          : "A plataforma inteligente de gestão aeroportuária, conectando voos, aeronaves, equipes e finanças."}
       </p>
       <div className="flex justify-center items-center mt-4">
         <button
