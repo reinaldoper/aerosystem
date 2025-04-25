@@ -5,9 +5,10 @@ import Welcome from '@/components/welcome'
 import { useState } from 'react'
 import SignInAirplane from '@/components/signInAirplane'
 import AllAirPlanes from '@/components/allAirPlanes'
+import useLanguage from '@/service/context'
 
 const Page = () => {
-
+  const { language, es } = useLanguage()
   const [airplanes, setAirplanes] = useState(true)
   
   const handleAirplanes = () => {
@@ -30,7 +31,7 @@ const Page = () => {
           onClick={handleAirplanes}
           className="z-20 mb-2.5 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
         >
-          {airplanes ? 'Adicionar Aeronave' : 'Ver Aeronaves'}
+          {airplanes ? <>{es ? language.explore_planes : "Explorar Aeronaves"}</> : <>{es ? language.see_airplanes : "Ver Aeronaves"}</>}
         </button>
       </div>
     </div>

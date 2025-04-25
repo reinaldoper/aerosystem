@@ -1,12 +1,14 @@
 'use client'
 import React, { useState } from 'react'
 import { fetchApiPlane } from '@/service/fetchAeroSystem'
+import useLanguage from '@/service/context'
 
   /**
    * Componente que renderiza um formul rio para adicionar uma aeronave.
    * @returns {JSX.Element} - O formul rio para adicionar uma aeronave.
    */
 const SignInAirplane = () => {
+  const { language, es } = useLanguage()
   const [modelo, setModelo] = useState('')
   const [anoFabricacao, setAnoFabricacao] = useState<Date>()
   const [capacidade, setCapacidade] = useState('')
@@ -27,7 +29,7 @@ const SignInAirplane = () => {
     const ano = anoFabricacao?.getFullYear()
     if (!modelo || !ano || !capacidade || !valorCompra) {
       setSuccess('')
-      setError('Preencha todos os campos.')
+      setError(`${es ? language.add_filed : 'Preencha todos os campos.'}`)
       return
     }
     const options = {
@@ -46,7 +48,7 @@ const SignInAirplane = () => {
       setLoading(false)
       const { message } = await fetchApiPlane(options)
       if (message) {
-        setSuccess('Aeronave adicionada com sucesso!')
+        setSuccess(`${es ? language.plane_add_success : 'Aeronave adicionada com sucesso!'}`)
         setError('')
         setLoading(true)
         setModelo('')
@@ -56,13 +58,13 @@ const SignInAirplane = () => {
       } else {
         setLoading(true)
         setSuccess('')
-        setError('Erro ao adicionar aeronave.')
+        setError(`${es ? language.error_add_plane : 'Erro ao adicionar aeronave.'}`)
       }
     } catch (error) {
       console.error('Error:', error)
       setSuccess('')
       setLoading(true)
-      setError('Erro ao adicionar aeronave.')
+      setError(`${es ? language.error_add_plane : 'Erro ao adicionar aeronave.'}`)
     }
     
   }
@@ -87,7 +89,7 @@ const SignInAirplane = () => {
       )}
       <form onSubmit={handleAirplanes} method="post">
         <div className="flex flex-col items-center justify-center text-center px-6 py-5">
-          <h1 className="text-2xl font-bold mb-4">Adicionar Aeronave</h1>
+          <h1 className="text-2xl font-bold mb-4">{es ? language.add_airplane: "Adicionar Aeronave"}</h1>
           <input
             type="text"
             name="name"
@@ -124,7 +126,7 @@ const SignInAirplane = () => {
             type='submit'
             className="z-20 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
           >
-            🛬 Adicionar
+            🛬 {es ? language.add : "Adicionar"}
           </button>
         </div>
       </form>

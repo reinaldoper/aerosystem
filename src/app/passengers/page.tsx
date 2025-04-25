@@ -5,8 +5,10 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { fetchApiPlane, fetchApiPassenger } from "@/service/fetchAeroSystem";
 import { Plane } from "@/types/typePlane";
+import useLanguage from "@/service/context";
 
 const Page = () => {
+  const { language, es } = useLanguage();
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [documentoIdentidade, setDocumentoIdentidade] = useState("");
@@ -64,7 +66,7 @@ const Page = () => {
         href="/passengers/passenger"
         className="absolute top-4 left-48 text-white hover:text-emerald-100 transition-colors z-20"
       >
-        ☰ Lista de passageiros
+        ☰ {es ? language.list_passengers : "Lista de Passageiros"}
       </Link>
       <div className="flex flex-col h-full px-6 py-31">
         {success && <p className="text-green-500 flex justify-center items-center z-20">{success}</p>}
@@ -111,7 +113,7 @@ const Page = () => {
               onChange={(e) => setPlaneId(Number(e.target.value))}
               className="mb-2.5 bg-emerald-500 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition z-10"
             >
-              <option value="">Selecione o avião:</option>
+              <option value="">{es ? language.select_airline : "Selecione o avião:"}</option>
               {planes.map((plane: Plane) => (
                 <option key={plane.id} value={plane.id}>
                   {plane.modelo}
@@ -122,12 +124,12 @@ const Page = () => {
               type="submit"
               className="z-20 mb-20 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
             >
-              🔑 Cadastrar Passageiro
+              🔑 {es ? language.add_passenger : "Cadastrar Passageiro"}
             </button>
           </form>
         ) : (
           <div className="flex mb-7 flex-col items-center justify-center h-full text-center px-6 py-20">
-            <h1>⚠️ No momento, nenhuma aeronave cadastrada!</h1>
+            <h1>⚠️ {es ? language.currently_airline : "Nenhuma aeronave cadastrada"}</h1>
           </div>
         )}
       </div>

@@ -5,8 +5,10 @@ import Welcome from '@/components/welcome'
 import { useParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { fetchApiPlane } from '@/service/fetchAeroSystem'
+import useLanguage from '@/service/context'
 
 const Page = () => {
+  const { language, es } = useLanguage()
   const { id } = useParams();
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -52,7 +54,7 @@ const Page = () => {
         </div>
       )}
       <h1 className='flex flex-col items-center justify-center h-full text-center px-6 py-20'>
-        Quer mesmo remover a aeronave ⚠️ {id}?
+        {es ? language.select_airline : "Tem certeza que deseja remover a aeronave"} ⚠️ {id}?
         <span className="text-emerald-500"> Clique em remover</span>
       </h1>
       <div className="flex justify-center text-center gap-6">
@@ -61,14 +63,14 @@ const Page = () => {
           onClick={() => handleRemoveAirplane()}
           className="z-20 mb-2.5 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
         >
-          ❌ Remover
+          ❌ {es ? language.remove : "Remover"}
         </button>
         <button
           type='button'
           onClick={() => handleAirplanes()}
           className="z-20 mb-2.5 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
         >
-          ℹ️ Cancelar
+          ℹ️ {es ? language.cancel : "Cancelar"}
         </button>
       </div>
     </div>

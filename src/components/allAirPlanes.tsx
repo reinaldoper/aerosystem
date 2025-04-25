@@ -3,8 +3,10 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { Plane } from '@/types/typePlane'
 import { fetchApiPlane } from '@/service/fetchAeroSystem'
+import useLanguage from '@/service/context'
 
 const AllAirPlanes = () => {
+  const { language, es } = useLanguage()
   const router = useRouter()
   const [airplanes, setAirplanes] = useState<Plane[]>([])
   const [loading, setLoading] = useState(true)
@@ -20,16 +22,16 @@ const AllAirPlanes = () => {
     try {
       const { data, message } = await fetchApiPlane()
       setAirplanes(data)
-      setSuccess(data.length === 0 ? 'Nenhuma aeronave encontrada.' : message)
+      setSuccess(data.length === 0 ? <>{es ? language.any_planes : "Aeronaves não encontradas"}</> : message)
       setError('')
       setTotalPages(Math.ceil(data.length / limit))
       setLoading(false)
     } catch (error) {
       console.log('Error:', error)
-      setError('Erro ao carregar aeronaves.')
+      setError(`${es ? language.any_planes : "Erro ao buscar aeronaves"}`)
       setLoading(false)
     }
-  }, [limit])
+  }, [limit, es, language])
 
   useEffect(() => {
     fetchAirplanes()
@@ -59,7 +61,7 @@ const AllAirPlanes = () => {
   }
   return (
     <div className="relative bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white px-6 py-12">
-      <h1 className="text-3xl font-bold text-center mb-8">Lista de Aeronaves</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">{es ? language.list_planes : "Todas as Aeronaves"}</h1>
 
       {loading && (
         <div className="flex justify-center items-center">
@@ -109,17 +111,17 @@ const AllAirPlanes = () => {
             disabled={page === 1}
             className="bg-emerald-500 px-4 py-2 rounded text-black font-semibold hover:bg-emerald-300 disabled:opacity-50"
           >
-            Anterior
+            {es ? language.back : "Anterior"}
           </button>
           <span className="text-white font-medium">
-            Página {page} de {totalPages}
+            {es ? language.page : "Página"} {page} de {totalPages}
           </span>
           <button
             onClick={() => setPage((prev) => Math.min(prev + 1, filteredTotalPages))}
             disabled={page === filteredTotalPages}
             className="bg-emerald-500 px-4 py-2 rounded text-black font-semibold hover:bg-emerald-300 disabled:opacity-50"
           >
-            Próxima
+            {es ? language.next : "Próximo"}
           </button>
         </div>
       )}

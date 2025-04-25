@@ -8,7 +8,36 @@ export interface data{
   ticket: string;
   Cashflow: string; 
   passenger: string;
+  select_passenger: string;
+  select_flight: string;
+  seat: string;
+  price: string;
+  add_ticket: string;
+  dates_not_found: string;
+  please: string;
+  flight: string;
+  explore_airports: string;
+  explore_planes: string;
+  select_airline: string;
+  list_passengers: string;
+  add_passenger: string;
+  currently_airline: string;
+  remove_airplane: string;
+  remove: string;
+  cancel: string;
+  add_airplane: string;
+  see_airplanes: string;
+  list_planes: string;
+  any_planes: string;
+  page: string;
+  next: string;
+  back: string;
+  plane_add_success: string;
+  error_add_plane: string;
+  add_filed: string;
+  add: string;
 }
+
 
 export interface Language {
   language: data;

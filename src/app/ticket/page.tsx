@@ -5,8 +5,10 @@ import React, { useEffect, useState } from "react";
 import { Passenger } from "@/types/typePassenger";
 import { fetchApiPassenger, fetchApiTicket, fetchApiFlight } from "@/service/fetchAeroSystem";
 import { Flight } from "@/types/typeFlight";
+import useLanguage from "@/service/context";
 
 const Page = () => {
+  const { language, es } = useLanguage();
   const [voo, setVoo] = useState<Flight[]>([]);
   const [passenger, setPassenger] = useState<Passenger[]>([]);
   const [passageiroId, setPassengerId] = useState<number>(0);
@@ -61,7 +63,7 @@ const Page = () => {
       <Welcome />
       <div className="flex flex-col items-center justify-center h-full text-center px-6 py-20">
         <h1 className="text-2xl font-bold text-center mt-4">
-          Adicionar Ticket
+          {es ? language.ticket : "Adicionar Ticket"}
         </h1>
         {message && (
           <div className="bg-green-500 text-white py-2 px-4 rounded mt-4">
@@ -75,7 +77,7 @@ const Page = () => {
         )}
         {passenger.length > 0 && voo.length > 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center px-6 py-20 z-10">
-            <label htmlFor="passageiroId">Passageiro:</label>
+            <label htmlFor="passageiroId">{es ? language.passenger : "Passageiro"}</label>
             <select
               required
               id="passageiroId"
@@ -83,30 +85,32 @@ const Page = () => {
               value={passageiroId}
               onChange={(e) => setPassengerId(Number(e.target.value))}
             >
-              <option value="">Selecione um passageiro</option>
+              <option value="">{es ? language.select_passenger : "Selecione um passageiro"}</option>
               {passenger.map((passenger) => (
                 <option key={passenger.id} value={passenger.id}>
                   {passenger.nome}
                 </option>
               ))}
             </select>
-            <label htmlFor="vooId">Voo:</label>
+            <label htmlFor="vooId">{es ? language.flight : "Voo"}</label>
             <select
+              className="mb-2.5 bg-emerald-500 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition z-10"
               required
               id="vooId"
               name="vooId"
               value={vooId}
               onChange={(e) => setVooId(Number(e.target.value))}
             >
-              <option value="">Selecione um voo</option>
+              <option value="">{es ? language.select_flight : "Selecione um voo"}</option>
               {voo.map((voo) => (
                 <option key={voo.id} value={voo.id}>
                   {voo.origem} - {voo.destino}
                 </option>
               ))}
             </select>
-            <label htmlFor="assento">Assento:</label>
+            <label htmlFor="assento">{es ? language.seat : "Assento:"}</label>
             <input
+              className="z-20 mb-2.5 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
               required
               type="text"
               id="assento"
@@ -114,8 +118,9 @@ const Page = () => {
               value={assento}
               onChange={(e) => setAssento(e.target.value)}
             />
-            <label htmlFor="preco">Preço:</label>
+            <label htmlFor="preco">{es ? language.price : "Preço:"}</label>
             <input
+              className="z-20 mb-2.5 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
               required
               type="number"
               id="preco"
@@ -134,8 +139,8 @@ const Page = () => {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center h-full z-10">
-            <h2 className="text-2xl font-bold">No dates found</h2>
-            <p>Please add a passenger or a flight.</p>
+            <h2 className="text-2xl font-bold">{es ? language.dates_not_found : "Nenhum dado encontrado."}</h2>
+            <p>{es ? language.please : "Adicione passageiros e voos."}</p>
           </div>
         )}
       </div>

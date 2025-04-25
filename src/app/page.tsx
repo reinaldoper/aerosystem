@@ -1,6 +1,8 @@
+'use client'
 import './globals.css'
 import Link from 'next/link'
 import Welcome from '@/components/welcome';
+import useLanguage from '@/service/context';
 
 /**
  * P gina inicial do AeroSystem.
@@ -11,6 +13,7 @@ import Welcome from '@/components/welcome';
  * @returns {JSX.Element} - A p gina inicial do AeroSystem.
  */
 export default function Home() {
+  const { language, es } = useLanguage();
   return (
     <div className="relative min-h-screen bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
       <div className="absolute inset-0 bg-[url('/airport.png')] bg-cover bg-center opacity-35 z-0" />
@@ -22,13 +25,19 @@ export default function Home() {
             href="/planes"
             className="bg-emerald-500 hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
           >
-            🛬 Explorar Aeronaves
+            🛬 {es ? language.explore_planes : "Explorar Aeronaves"}
           </Link>
           <Link
             href="/airport"
             className="bg-white hover:bg-gray-200 text-emerald-800 font-semibold px-6 py-3 rounded-lg shadow-md transition"
           >
-            🛫 Ver Aeroportos
+            🛫 {es ? language.explore_airports : "Ver Aeroportos"}
+          </Link>
+          <Link
+            href="/flight"
+            className="bg-white hover:bg-gray-200 text-emerald-800 font-semibold px-6 py-3 rounded-lg shadow-md transition"
+          >
+            ✈️🌍🧳🏙️ {es ? language.flight : "Voo"}
           </Link>
 
         </div>
