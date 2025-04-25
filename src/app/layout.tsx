@@ -50,7 +50,7 @@ export default function RootLayout({
               <Link href="/cashflow" className="text-white hover:text-emerald-100 transition-colors">
                 {es ? language.Cashflow : "Fluxo de Caixa"}
               </Link>
-              <Link href="/passenger" className="text-white hover:text-emerald-100 transition-colors">
+              <Link href="/passengers" className="text-white hover:text-emerald-100 transition-colors">
                 {es ? language.passenger : "Passageiro"}
               </Link>
               <p className="text-white hover:text-emerald-100 transition-colors">

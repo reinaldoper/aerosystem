@@ -2,6 +2,7 @@
 
 import Welcome from "@/components/welcome";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { fetchApiPlane, fetchApiPassenger } from "@/service/fetchAeroSystem";
 import { Plane } from "@/types/typePlane";
 
@@ -59,6 +60,12 @@ const Page = () => {
     <div className="relative bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
       <div className="absolute inset-0 bg-[url('/passenger.png')] bg-cover bg-center opacity-35 z-0" />
       <Welcome />
+      <Link
+        href="/passengers/passenger"
+        className="absolute top-4 left-48 text-white hover:text-emerald-100 transition-colors z-20"
+      >
+        ☰ Lista de passageiros
+      </Link>
       <div className="flex flex-col h-full px-6 py-31">
         {success && <p className="text-green-500 flex justify-center items-center z-20">{success}</p>}
         {error && (
