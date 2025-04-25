@@ -61,7 +61,7 @@ const Page = () => {
     <div className="relative min-h-screen bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
       <div className="absolute inset-0 bg-[url('/ticket.png')] bg-cover bg-center opacity-35 z-0" />
       <Welcome />
-      <div className="flex flex-col items-center justify-center h-full text-center px-6 py-20">
+      <div className="flex flex-col items-center justify-center h-full text-center px-6">
         <h1 className="text-2xl font-bold text-center mt-4">
           {es ? language.ticket : "Adicionar Ticket"}
         </h1>
