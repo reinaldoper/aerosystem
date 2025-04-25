@@ -7,7 +7,7 @@
 
 ## Spoiler da aplicação abaixo
 
-[AeroSystem](./public/aeroPlane.gif)
+[AeroSystem](https://aerosystem.vercel.app/)
 
 ---
 
