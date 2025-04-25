@@ -3,9 +3,11 @@
 import Welcome from "@/components/welcome";
 import React, { useEffect, useState } from "react";
 import { Passenger } from "@/types/typePassenger";
-import { fetchApiPassenger, fetchApiTicket } from "@/service/fetchAeroSystem";
+import { fetchApiPassenger, fetchApiTicket, fetchApiFlight } from "@/service/fetchAeroSystem";
+import { Flight } from "@/types/typeFlight";
 
 const Page = () => {
+  const [voo, setVoo] = useState<Flight[]>([]);
   const [passenger, setPassenger] = useState<Passenger[]>([]);
   const [passageiroId, setPassengerId] = useState<number>(0);
   const [vooId, setVooId] = useState<number>(0);
@@ -18,9 +20,16 @@ const Page = () => {
     setPassenger(data);
   };
 
+  const handleVoo = async () => {
+    const { data } = await fetchApiFlight();
+    setVoo(data);
+  };
+
   useEffect(() => {
     handlePassenger();
+    handleVoo();
   }, []);
+  
 
   const handleTicket = async () => {
     const options = {
@@ -38,9 +47,11 @@ const Page = () => {
     const { message, error } = await fetchApiTicket(options);
     if (message) {
       setMessage(message);
+      setError("");
     }
     if (error) {
       setError(error);
+      setMessage("");
     }
   };
 
@@ -62,7 +73,7 @@ const Page = () => {
             {error}
           </div>
         )}
-        {passenger.length > 0 ? (
+        {passenger.length > 0 && voo.length > 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center px-6 py-20 z-10">
             <label htmlFor="passageiroId">Passageiro:</label>
             <select
@@ -80,14 +91,20 @@ const Page = () => {
               ))}
             </select>
             <label htmlFor="vooId">Voo:</label>
-            <input
+            <select
               required
-              type="number"
               id="vooId"
               name="vooId"
               value={vooId}
               onChange={(e) => setVooId(Number(e.target.value))}
-            />
+            >
+              <option value="">Selecione um voo</option>
+              {voo.map((voo) => (
+                <option key={voo.id} value={voo.id}>
+                  {voo.origem} - {voo.destino}
+                </option>
+              ))}
+            </select>
             <label htmlFor="assento">Assento:</label>
             <input
               required
@@ -117,8 +134,8 @@ const Page = () => {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center h-full z-10">
-            <h2 className="text-2xl font-bold">No passengers found</h2>
-            <p>Please add a passenger.</p>
+            <h2 className="text-2xl font-bold">No dates found</h2>
+            <p>Please add a passenger or a flight.</p>
           </div>
         )}
       </div>
