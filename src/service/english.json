@@ -28,6 +28,7 @@
   "remove": "Remove",
   "cancel": "Cancel",
   "add_airplane": "Add Airplane",
+  "add_airport": "Add Airport",
   "see_airplanes": "See Airplanes",
   "list_planes": "List Planes",
   "any_planes": "No planes registered",
@@ -37,6 +38,12 @@
   "plane_add_success": "Plane added successfully",
   "error_add_plane": "Error adding plane",
   "add_filed": "Add all Field",
-  "add": "Add"
+  "add": "Add",
+  "error_add_airport": "Fill in all fields.",
+  "airport_add_success": "Airport added successfully",
+  "airport_name": "Airport Name",
+  "airport_code": "Airport Code",
+  "city": "City",
+  "state": "State"
   }
 }

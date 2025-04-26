@@ -37,6 +37,13 @@ export interface data{
   add_filed: string;
   add: string;
   remove_passenger: string;
+  add_airport: string;
+  error_add_airport: string;
+  airport_add_success: string;
+  airport_name: string;
+  airport_code: string;
+  city: string;
+  state: string;
 }
 
 
