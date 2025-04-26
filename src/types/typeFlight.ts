@@ -1,3 +1,7 @@
+
+
+export const statusFlight = ['programado', 'em_andamento', 'concluido', 'cancelado']
+
 export type Flight = {
   origem: number;
   destino: number;

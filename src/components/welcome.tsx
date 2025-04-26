@@ -18,7 +18,7 @@ const Welcome = () => {
   const { language, es, setLanguage, USA, BRAZIL } = useLanguage();
   return (
     <div className="relative z-20 flex flex-col items-center justify-center text-center overflow-x-hidden">
-      <h1 className="flex justify-center text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg break-words text-center">
+      <h1 className="flex justify-center mt-4 text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg break-words text-center">
         {es ? (
           <>
             {language.key}{" "}

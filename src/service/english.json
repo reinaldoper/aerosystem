@@ -12,6 +12,7 @@
   "select_passenger": "Select Passenger",
   "select_flight": "Select Flight",
   "select_airline": "Select Airline",
+  "select_status": "Select a Status",
   "seat": "Seat:",
   "price": "Price:",
   "flight": "Flight",
@@ -44,6 +45,17 @@
   "airport_name": "Airport Name",
   "airport_code": "Airport Code",
   "city": "City",
-  "state": "State"
+  "state": "State",
+  "origin": "Origin",
+  "destination": "Destination",
+  "date_start": "Departure Date",
+  "date_end": "Arrival Date",
+  "status": "Status",
+  "plane": "Plane",
+  "not_plane_not_airport": "No planes or airports registered",
+  "select_airplane": "Select a Plane",
+  "airport_destination": "Airport Destination",
+  "airport_origin": "Airport Origin",
+  "create_flight": "Create Flight"
   }
 }

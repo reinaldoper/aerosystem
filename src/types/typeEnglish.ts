@@ -44,6 +44,18 @@ export interface data{
   airport_code: string;
   city: string;
   state: string;
+  origin: string;
+  destination: string;
+  date_start: string;
+  date_end: string;
+  status: string;
+  plane: string;
+  not_plane_not_airport: string;
+  select_airplane: string;
+  select_status: string;
+  airport_destination: string;
+  airport_origin: string;
+  create_flight: string
 }
 
 

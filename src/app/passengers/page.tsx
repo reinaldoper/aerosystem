@@ -50,6 +50,7 @@ const Page = () => {
       setDocumentoIdentidade("");
       setPlaneId(0);
       setLoading(false);
+      setError("");
     }
     if (error) {
       setError(error);
