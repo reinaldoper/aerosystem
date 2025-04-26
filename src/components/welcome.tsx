@@ -17,12 +17,12 @@ import useLanguage from "@/service/context";
 const Welcome = () => {
   const { language, es, setLanguage, USA, BRAZIL } = useLanguage();
   return (
-    <div className="relative z-20 flex flex-col items-center justify-center text-center px-6 overflow-x-hidden">
-      <h1 className="w-full max-w-full text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg break-words text-center">
+    <div className="relative z-20 flex flex-col items-center justify-center text-center overflow-x-hidden">
+      <h1 className="flex justify-center text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg break-words text-center">
         {es ? (
           <>
             {language.key}{" "}
-            <span className="text-emerald-300">{language.title}</span>
+            <span className="flex text-emerald-300 flex-wrap">{language.title}</span>
           </>
         ) : (
           <>
@@ -30,7 +30,7 @@ const Welcome = () => {
           </>
         )}
       </h1>
-      <p className="text-xl md:text-2xl max-w-3xl w-full text-emerald-100 break-words">
+      <p className="text-xl md:text-2xl w-full text-emerald-100 break-words">
         {es
           ? language.description
           : "A plataforma inteligente de gestão aeroportuária, conectando voos, aeronaves, equipes e finanças."}

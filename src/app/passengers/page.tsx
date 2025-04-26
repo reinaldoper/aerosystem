@@ -68,7 +68,7 @@ const Page = () => {
       >
         ☰ {es ? language.list_passengers : "Lista de Passageiros"}
       </Link>
-      <div className="flex flex-col h-full px-6">
+      <div className="flex mt-4 flex-col h-full px-6">
         {success && <p className="text-green-500 flex justify-center items-center z-20">{success}</p>}
         {error && (
           <div className="bg-red-500 text-white p-4 rounded mb-4 flex justify-center items-center">{error}</div>

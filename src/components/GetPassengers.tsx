@@ -19,7 +19,7 @@ const GetPassengers = () => {
   return (
     <>
     {passenger.length > 0 ? (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 mt-4 gap-6 p-6">
           {passenger.map((passenger) => (
             <div
               key={passenger.id}
@@ -33,7 +33,7 @@ const GetPassengers = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center h-full z-10">
+        <div className="flex flex-col mt-4 items-center justify-center h-full z-10">
           <h2 className="text-2xl font-bold">{es ? language.dates_not_found: "Passageiros não encontrados"}</h2>
           <p>{es ? language.add_passenger : "Adicionar passageiro"}</p>
           <Link

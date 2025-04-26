@@ -20,12 +20,12 @@ const Page = () => {
       <div className="absolute inset-0 bg-[url('/planes.png')] bg-cover bg-center opacity-35 z-0" />
       <Welcome />
       {!airplanes ?
-        <div className="flex flex-col items-center justify-center h-full text-center px-6">
+        <div className="flex mt-4 flex-col items-center justify-center h-full text-center px-6">
           <SignInAirplane />
-        </div>: <div className="flex flex-col items-center justify-center h-full text-center px-6">
+        </div>: <div className="flex mt-4 flex-col items-center justify-center h-full text-center px-6">
           <AllAirPlanes />
       </div>}
-      <div className="flex justify-center text-center gap-6">
+      <div className="flex justify-center mt-4 text-center gap-6">
         <button
           type='button'
           onClick={handleAirplanes}
