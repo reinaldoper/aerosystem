@@ -24,6 +24,7 @@
   "add_passenger": "Add Passenger",
   "currently_airline": "Currently no aircraft registered",
   "remove_airplane": "Do you really want to remove the aircraft",
+  "remove_passenger": "Do you really want to remove the passenger",
   "remove": "Remove",
   "cancel": "Cancel",
   "add_airplane": "Add Airplane",

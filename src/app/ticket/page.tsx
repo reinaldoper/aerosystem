@@ -63,7 +63,7 @@ const Page = () => {
       <Welcome />
       <div className="flex flex-col items-center justify-center h-full text-center px-6">
         <h1 className="text-2xl font-bold text-center mt-4">
-          {es ? language.ticket : "Adicionar Ticket"}
+          {es ? language.add_ticket : "Adicionar Ticket"}
         </h1>
         {message && (
           <div className="bg-green-500 text-white py-2 px-4 rounded mt-4">
@@ -134,7 +134,7 @@ const Page = () => {
               disabled={!passageiroId || !vooId || !assento || !preco}
               className="bg-emerald-500 hover:bg-emerald-600 text-white py-2 px-4 rounded mt-4 z-10"
             >
-              Adicionar Ticket
+              👜✈️🗺️🏞️ {es ? language.add_ticket : "Adicionar Ticket"}
             </button>
           </div>
         ) : (

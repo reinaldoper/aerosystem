@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Welcome from '@/components/welcome'
 import { useParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import { fetchApiPlane } from '@/service/fetchAeroSystem'
+import { fetchApiPassenger } from '@/service/fetchAeroSystem'
 import useLanguage from '@/service/context'
 
 const Page = () => {
@@ -14,11 +14,11 @@ const Page = () => {
   const [error, setError] = useState('')
 
   const router = useRouter()
-  const handleAirplanes = () => {
-    router.push('/planes')
+  const handlePassengers = () => {
+    router.push('/passengers/passenger')
   }
 
-  const handleRemoveAirplane = async () => {
+  const handleRemovePassenger = async () => {
     try {
       const options = {
         method: 'DELETE',
@@ -27,9 +27,9 @@ const Page = () => {
         },
       }
       setLoading(true)
-      const { message, error } = await fetchApiPlane(options, Number(id))
+      const { message, error } = await fetchApiPassenger(options, Number(id))
       if (message) {
-        router.push('/planes')
+        router.push('/passengers/passenger')
       }
       if (error) {
         setLoading(false)
@@ -54,20 +54,20 @@ const Page = () => {
         </div>
       )}
       <h1 className='flex flex-col items-center justify-center h-full text-center px-6 py-20'>
-        {es ? language.remove_airplane : "Tem certeza que deseja remover a aeronave"} ⚠️ {id}?
-        <span className="text-emerald-500"> Clique em remover</span>
+        {es ? language.remove_passenger : "Tem certeza que deseja remover o passageiro"} ⚠️ {id}?
+        <span className="text-emerald-500">{es ? language.remove : "Remover"}</span>
       </h1>
       <div className="flex justify-center text-center gap-6">
         <button
           type='button'
-          onClick={() => handleRemoveAirplane()}
+          onClick={() => handleRemovePassenger()}
           className="z-20 mb-2.5 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
         >
           ❌ {es ? language.remove : "Remover"}
         </button>
         <button
           type='button'
-          onClick={() => handleAirplanes()}
+          onClick={() => handlePassengers()}
           className="z-20 mb-2.5 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
         >
           ℹ️ {es ? language.cancel : "Cancelar"}

@@ -1,24 +1,30 @@
-'use client'
-import { fetchApiPassenger } from '@/service/fetchAeroSystem';
-import { Passenger } from '@/types/typePassenger';
-import Link from 'next/link';
-import { useEffect, useState } from 'react'
-import useLanguage from '@/service/context';
+"use client";
+import { fetchApiPassenger } from "@/service/fetchAeroSystem";
+import { Passenger } from "@/types/typePassenger";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import useLanguage from "@/service/context";
+import { useRouter } from "next/navigation";
 
 const GetPassengers = () => {
+  const router = useRouter()
   const { language, es } = useLanguage();
   const [passenger, setPassenger] = useState<Passenger[]>([]);
-    const handlePassenger = async () => {
-      const { data } = await fetchApiPassenger();
-      setPassenger(data);
-    };
-  
-    useEffect(() => {
-      handlePassenger();
-    }, []);
+  const handlePassenger = async () => {
+    const { data } = await fetchApiPassenger();
+    setPassenger(data);
+  };
+
+  useEffect(() => {
+    handlePassenger();
+  }, []);
+
+  const handleRemovePassenger = async (id: number) => {
+    router.push(`/passengers/passenger/${id}`)
+  }
   return (
     <>
-    {passenger.length > 0 ? (
+      {passenger.length > 0 ? (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 mt-4 gap-6 p-6">
           {passenger.map((passenger) => (
             <div
@@ -29,12 +35,22 @@ const GetPassengers = () => {
               <p>{passenger.email}</p>
               <p>{passenger.documentoIdentidade}</p>
               <p>{passenger.planeId}</p>
+              <button
+                onClick={() => {
+                  handleRemovePassenger(Number(passenger.id));
+                }}
+                className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-400"
+              >
+                ❌
+              </button>
             </div>
           ))}
         </div>
       ) : (
         <div className="flex flex-col mt-4 items-center justify-center h-full z-10">
-          <h2 className="text-2xl font-bold">{es ? language.dates_not_found: "Passageiros não encontrados"}</h2>
+          <h2 className="text-2xl font-bold">
+            {es ? language.dates_not_found : "Passageiros não encontrados"}
+          </h2>
           <p>{es ? language.add_passenger : "Adicionar passageiro"}</p>
           <Link
             href="/passengers"
@@ -45,7 +61,7 @@ const GetPassengers = () => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default GetPassengers
+export default GetPassengers;

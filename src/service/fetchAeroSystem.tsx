@@ -71,10 +71,16 @@ export const fetchApiTicket = async (options?: RequestInit) => {
  * @param {RequestInit} [options] - Options to pass to the fetch function.
  * @returns {Promise<Passenger[]>} - A promise that resolves with the list of passengers.
  */
-export const fetchApiPassenger = async (options?: RequestInit) => {
-  const response = await fetch(`${URL_API_PASSENGER}`, options )
-  const data = await response.json()
-  return data
+export const fetchApiPassenger = async (options?: RequestInit, id?: number) => {
+  if (id) {
+    const response = await fetch(`${URL_API_PASSENGER}/${id}`, options )
+    const data = await response.json()
+    return data
+  } else {
+    const response = await fetch(`${URL_API_PASSENGER}`, options )
+    const data = await response.json()
+    return data
+  }
 }
 
 /**

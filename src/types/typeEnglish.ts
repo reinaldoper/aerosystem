@@ -36,6 +36,7 @@ export interface data{
   error_add_plane: string;
   add_filed: string;
   add: string;
+  remove_passenger: string;
 }
 
 
