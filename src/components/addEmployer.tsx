@@ -4,6 +4,15 @@ import { fetchApiEmployee } from "@/service/fetchAeroSystem";
 import { EmployerStatus } from "@/types/typeEmployer";
 import useLanguage from "@/service/context";
 
+/**
+ * Componente que renderiza um formul rio para adicionar um funcion rio.
+ *
+ * Renderiza um formul rio com campos para o nome, matricula e fun o do funcion rio.
+ * Ao ser submetido, o formul rio chama a API para adicionar um novo funcion rio.
+ * Mostra mensagens de sucesso ou erro ap s a submiss o.
+ *
+ * @returns {JSX.Element} - O formul rio para adicionar um funcion rio.
+ */
 const AddEmployer = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");

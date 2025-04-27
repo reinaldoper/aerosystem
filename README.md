@@ -94,9 +94,9 @@ npm run dev
 
 ## 🐞 Problemas Conhecidos
 
-1. Página de visualização de aeronaves ainda não possui filtros
+1. Implantar a página para deletar um funcionário.
 
-2. Melhorar feedback visual após adição de aeronave
+2. Implantar página para deletar fluxo de caixa.
 
 ---
 
