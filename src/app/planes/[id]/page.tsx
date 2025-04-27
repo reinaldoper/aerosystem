@@ -7,6 +7,14 @@ import { useRouter } from 'next/navigation'
 import { fetchApiPlane } from '@/service/fetchAeroSystem'
 import useLanguage from '@/service/context'
 
+  /**
+   * P gina para deletar uma aeronave.
+   *
+   * Renderiza uma mensagem de confirma o para deletar a aeronave, e dois bot es
+   * para confirmar a remo o (Remover) ou cancelar (Cancelar).
+   *
+   * @returns {JSX.Element} - A p gina para deletar uma aeronave.
+   */
 const Page = () => {
   const { language, es } = useLanguage()
   const { id } = useParams();

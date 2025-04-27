@@ -55,7 +55,10 @@ export interface data{
   select_status: string;
   airport_destination: string;
   airport_origin: string;
-  create_flight: string
+  create_flight: string;
+  loading: string;
+  select_function: string;
+  add_employer: string
 }
 
 

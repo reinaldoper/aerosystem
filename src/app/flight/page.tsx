@@ -3,6 +3,13 @@ import Welcome from '@/components/welcome'
 import React from 'react'
 import CreateFlight from '@/components/createFlight'
 
+/**
+ * Page component for flights.
+ *
+ * Renders a background image of an airport, a welcome message and a form to create a new flight.
+ *
+ * @returns {JSX.Element} - The page component for flights.
+ */
 const Page = () => {
   console.log('Flight');
   

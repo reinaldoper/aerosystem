@@ -56,6 +56,9 @@
   "select_airplane": "Select a Plane",
   "airport_destination": "Airport Destination",
   "airport_origin": "Airport Origin",
-  "create_flight": "Create Flight"
+  "create_flight": "Create Flight",
+  "loading": "Loading...",
+  "select_function": "Select a function",
+  "add_employer": "Add Employee"
   }
 }

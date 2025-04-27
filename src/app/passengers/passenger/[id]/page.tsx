@@ -7,6 +7,15 @@ import { useRouter } from 'next/navigation'
 import { fetchApiPassenger } from '@/service/fetchAeroSystem'
 import useLanguage from '@/service/context'
 
+  /**
+   * Page component that renders a page for deleting a passenger.
+   * It renders a confirmation message, a button to confirm the removal,
+   * and a button to cancel the removal. If the removal is confirmed, it
+   * redirects to the list of passengers. If the removal is cancelled, it
+   * redirects to the list of passengers.
+   *
+   * @returns {JSX.Element} - The page component.
+   */
 const Page = () => {
   const { language, es } = useLanguage()
   const { id } = useParams();

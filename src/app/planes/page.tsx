@@ -7,6 +7,14 @@ import SignInAirplane from '@/components/signInAirplane'
 import AllAirPlanes from '@/components/allAirPlanes'
 import useLanguage from '@/service/context'
 
+  /**
+   * Page component that renders a page for adding and listing airplanes.
+   * It renders a background image, a welcome message, and a button to
+   * toggle between the add airplane form and the list of airplanes.
+   * If the button is clicked, it renders the add airplane form, otherwise
+   * it renders the list of airplanes.
+   * @returns {JSX.Element} The page component.
+   */
 const Page = () => {
   const { language, es } = useLanguage()
   const [airplanes, setAirplanes] = useState(true)

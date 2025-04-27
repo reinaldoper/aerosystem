@@ -9,6 +9,19 @@ import { Plane } from '@/types/typePlane'
 import useLanguage from '@/service/context'
 
 
+  /**
+   * CreateFlight component.
+   * 
+   * This component renders a form to create a new flight.
+   * The form contains fields for the origin and destination airports, 
+   * the departure and arrival dates and times, the status of the flight 
+   * and the plane that will be used.
+   * 
+   * After submitting the form, the component will make a POST request 
+   * to the server to create a new flight.
+   * 
+   * @returns {JSX.Element} - The CreateFlight component.
+   */
 const CreateFlight = () => {
   const [origem, setOrigem] = useState(0)
   const [destino, setDestino] = useState(0)
@@ -172,7 +185,7 @@ const CreateFlight = () => {
           type="submit"
           className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 rounded-md"
         >
-          Criar Voo
+          🛬🕒📅 {es ? language.create_flight: "Criar Voo"}
         </button>
       </form>: <div className="flex justify-center items-center">
             <h1 className="text-2xl font-bold mb-4">{es ? language.not_plane_not_airport: "Não há aeroporto ou voos disponiveis."}</h1>

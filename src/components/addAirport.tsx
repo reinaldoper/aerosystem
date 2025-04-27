@@ -4,6 +4,20 @@ import { fetchApiAirport } from '@/service/fetchAeroSystem'
 import useLanguage from '@/service/context'
 
 
+/**
+ * AddAirport component.
+ * 
+ * This component renders a form to add a new airport. The form includes fields for 
+ * the airport's name, city, state, and IATA code. It validates the input fields 
+ * before submission and provides success or error messages accordingly.
+ * 
+ * The component uses React state to manage form inputs, loading state, and feedback 
+ * messages. It also utilizes the `useLanguage` hook to support multiple languages 
+ * for labels and messages.
+ * 
+ * @returns {JSX.Element} - The AddAirport component.
+ */
+
 const AddAirport = () => {
   const { language, es } = useLanguage()
   const [nome, setNome] = useState('')

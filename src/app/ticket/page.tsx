@@ -7,6 +7,16 @@ import { fetchApiPassenger, fetchApiTicket, fetchApiFlight } from "@/service/fet
 import { Flight } from "@/types/typeFlight";
 import useLanguage from "@/service/context";
 
+  /**
+   * P gina para adicionar um ticket.
+   *
+   * @remarks
+   * Essa p gina   respons vel por adicionar um ticket na base de dados.
+   * Ela lista todos os passageiros e todos os voos e permite o usu rio selecionar um
+   * passageiro e um voo e adicionar um ticket com o valor desejado.
+   * A p gina tamb m lista todos os tickets adicionados.
+   * @returns O componente da p gina para adicionar um ticket.
+   */
 const Page = () => {
   const { language, es } = useLanguage();
   const [voo, setVoo] = useState<Flight[]>([]);

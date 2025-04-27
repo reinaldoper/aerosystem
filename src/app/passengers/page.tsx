@@ -7,6 +7,20 @@ import { fetchApiPlane, fetchApiPassenger } from "@/service/fetchAeroSystem";
 import { Plane } from "@/types/typePlane";
 import useLanguage from "@/service/context";
 
+/**
+ * Page component for the passenger registration page.
+ *
+ * The component renders a form with input fields for the passenger's name, email,
+ * and identification document, as well as a select field for the airline. The
+ * component also renders a success or error message depending on the result of
+ * the submission. If the airline select field is empty, the component renders a
+ * message indicating that no airplanes have been registered yet.
+ *
+ * The component uses the `useLanguage` hook to support multiple languages for
+ * labels and messages.
+ *
+ * @returns {JSX.Element} - The Page component.
+ */
 const Page = () => {
   const { language, es } = useLanguage();
   const [nome, setNome] = useState("");

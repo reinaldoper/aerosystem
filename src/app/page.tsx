@@ -34,7 +34,7 @@ export default function Home() {
           </Link>
           <Link
             href="/flight"
-            className="bg-white hover:bg-gray-200 text-emerald-800 font-semibold px-6 py-3 rounded-lg shadow-md transition"
+            className="bg-yellow-300 hover:bg-yellow-400 text-emerald-800 font-semibold px-6 py-3 rounded-lg shadow-md transition"
           >
             ✈️🌍🧳🏙️ {es ? language.flight : "Voo"}
           </Link>

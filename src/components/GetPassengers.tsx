@@ -6,6 +6,11 @@ import { useEffect, useState } from "react";
 import useLanguage from "@/service/context";
 import { useRouter } from "next/navigation";
 
+  /**
+   * Fetch the list of passengers from the API.
+   *
+   * @returns The list of passengers
+   */
 const GetPassengers = () => {
   const router = useRouter()
   const { language, es } = useLanguage();

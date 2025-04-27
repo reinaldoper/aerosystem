@@ -5,6 +5,11 @@ import { Plane } from '@/types/typePlane'
 import { fetchApiPlane } from '@/service/fetchAeroSystem'
 import useLanguage from '@/service/context'
 
+/**
+ * Componente que renderiza uma lista de aeronaves.
+ *
+ * @returns {JSX.Element} - A lista de aeronaves.
+ */
 const AllAirPlanes = () => {
   const { language, es } = useLanguage()
   const router = useRouter()
