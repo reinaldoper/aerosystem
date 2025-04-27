@@ -3,6 +3,13 @@ import Welcome from "@/components/welcome";
 import React from "react";
 import AddCashFlow from "@/components/addCashFlow";
 
+/**
+ * Page component for cash flow.
+ *
+ * Renders a background image of cash, a welcome message and a form to add a new cash flow.
+ *
+ * @returns {JSX.Element} - The page component for cash flow.
+ */
 const page = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-700 text-white">
