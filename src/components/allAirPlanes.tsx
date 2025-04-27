@@ -97,6 +97,7 @@ const AllAirPlanes = () => {
             <p className="text-gray-700">Data criação:{' '}
               {handleDate(plane.createdAt)}
             </p>
+            <p className="text-gray-700">Status : {plane.status}</p>
             <button
               onClick={() => {
                 handleRemoveAirplane(Number(plane.id))
