@@ -58,7 +58,13 @@ export interface data{
   create_flight: string;
   loading: string;
   select_function: string;
-  add_employer: string
+  add_employer: string;
+  all_reserved: string;
+  select_airport: string;
+  amount: string;
+  description_: string;
+  not_planes_not_airports: string;
+  select_type: string
 }
 
 

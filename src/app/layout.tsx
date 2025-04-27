@@ -76,7 +76,7 @@ export default function RootLayout({
         </main>
         <footer className="bg-emerald-700 text-white text-sm py-4">
           <div className="max-w-6xl mx-auto text-center">
-            © 2025 AeroSystem. Todos os direitos reservados.
+            © 2025 AeroSystem. {es ? language.all_reserved : "Todos os direitos reservados."}
           </div>
         </footer>
       </body>

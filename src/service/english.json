@@ -4,15 +4,19 @@
   "title": "AeroSystem",
   "description": "The smart airport management platform, connecting flights, aircraft, teams and finances.",
   "employee": "Employee",
+  "description_" : "Description",
   "passenger": "Passenger",
   "airline": "Airline",
   "Cashflow": "Cashflow",
   "ticket": "Ticket",
   "home": "Home",
+  "amount": "Amount",
   "select_passenger": "Select Passenger",
   "select_flight": "Select Flight",
+  "select_airport": "Select Airport",
   "select_airline": "Select Airline",
   "select_status": "Select a Status",
+  "all_reserved": "All right Reserved",
   "seat": "Seat:",
   "price": "Price:",
   "flight": "Flight",
@@ -59,6 +63,8 @@
   "create_flight": "Create Flight",
   "loading": "Loading...",
   "select_function": "Select a function",
-  "add_employer": "Add Employee"
+  "add_employer": "Add Employee",
+  "not_planes_not_airports": "No planes or airports registered",
+  "select_type": "Select a type"
   }
 }
