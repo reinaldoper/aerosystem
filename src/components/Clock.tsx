@@ -2,7 +2,7 @@
 'use client';
 
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /**
  * Componente que renderiza um rel gio atualizado a cada segundo.

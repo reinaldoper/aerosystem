@@ -2,7 +2,7 @@
 import { fetchApiPassenger } from "@/service/fetchAeroSystem";
 import { Passenger } from "@/types/typePassenger";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import useLanguage from "@/service/context";
 import { useRouter } from "next/navigation";
 

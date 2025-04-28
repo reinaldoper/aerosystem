@@ -72,14 +72,18 @@ npm run dev
 
 ## 🗃️ Estrutura do Projeto
 
-```bash
-📁 src
- ┣ 📂app                ← Rotas com estrutura do Next.js 13+
- ┣ 📂components         ← Componentes reutilizáveis (header, forms, cards, etc.)
- ┣ 📂service            ← Serviços de fetch para consumir APIs
- ┣ 📂types              ← Tipagens TypeScript (ex: Plane, Passenger, etc.)
- ┣ 📄globals.css        ← Estilização global com Tailwind
- ┣ 📄layout.tsx         ← Layout padrão do sistema com header/footer
+```bash  
+┌ /                                    2.64 kB         220 kB
+├ /airport                             4.38 kB         219 kB
+├ /cashflow                            4.86 kB         220 kB
+├ /employees                           4.37 kB         219 kB
+├ /flight                              4.82 kB         220 kB
+├ /passengers                          4.51 kB         227 kB
+├ /passengers/passenger                4.06 kB         227 kB
+├ /passengers/passenger/[id]           4.13 kB         219 kB
+├ /planes                              5.99 kB         221 kB
+├ /planes/[id]                         4.13 kB         219 kB
+└ /ticket    
 ```
 
 ---
