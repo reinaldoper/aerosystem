@@ -83,7 +83,7 @@ const SignInAirplane = () => {
         </div>
       )}
       {!loading && (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center" data-testid="loading">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
         </div>
       )}
@@ -123,6 +123,7 @@ const SignInAirplane = () => {
             className="z-20 mb-4 p-2 border border-gray-300 rounded"
           />
           <button
+            data-testid="add-plane"
             type='submit'
             className="z-20 bg-emerald-500 justify-center cursor-pointer text-center hover:bg-emerald-300 text-black font-semibold px-6 py-3 rounded-lg shadow-md transition"
           >

@@ -53,10 +53,10 @@ const GetPassengers = () => {
         </div>
       ) : (
         <div className="flex flex-col mt-4 items-center justify-center h-full z-10">
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-2xl font-bold" data-testid="passenger-not-found">
             {es ? language.dates_not_found : "Passageiros não encontrados"}
           </h2>
-          <p>{es ? language.add_passenger : "Adicionar passageiro"}</p>
+          <p data-testid="add-passenger">{es ? language.add_passenger : "Adicionar passageiro"}</p>
           <Link
             href="/passengers"
             className="bg-emerald-700 text-white hover:text-emerald-100 px-4 py-2 rounded-lg mt-4 z-10"
