@@ -103,3 +103,9 @@ npm run dev
 ## 💡 Contribuições
 
 - Pull Requests são bem-vindos! Fique à vontade para abrir uma issue com sugestões ou bugs encontrados.
+
+---
+
+## ⭐ Deixe uma estrela!
+- Se este projeto te ajudou ou te inspirou, deixe uma estrela ⭐ no repositório.
+- Isso ajuda muito na divulgação!
