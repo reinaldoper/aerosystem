@@ -40,10 +40,11 @@ const Welcome = () => {
           type="button"
           onClick={() => setLanguage()}
           className="text-2xl mr-2 cursor-pointer"
+          data-testid="language-button"
         >
           {es ? BRAZIL : USA}
         </button>
-        <p className="text-lg text-emerald-100">
+        <p className="text-lg text-emerald-100" data-testid="language-text">
           {es ? "Português" : "English"}
         </p>
       </div>
