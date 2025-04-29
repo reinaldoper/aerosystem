@@ -70,6 +70,14 @@ npm run dev
 
 ---
 
+## Testes
+
+```bash
+npm run test
+```
+
+---
+
 ## 🗃️ Estrutura do Projeto
 
 ```bash  
