@@ -80,7 +80,7 @@ const CreateFlight = () => {
         setError('')
       }
       if (error) {
-        setError(error)
+        setError('Erro ao criar voo')
         setSuccess('')
       }
     } catch (error) {
@@ -94,12 +94,13 @@ const CreateFlight = () => {
       <h2 className="text-2xl font-semibold mb-4">{es ? language.create_flight : 'Criar Voo'}</h2>
       {show && <p className="text-blue-500">Loading...</p>}
       {airports.length > 0 && planes.length > 0 ? <form onSubmit={handleSubmit} className="w-full max-w-md">
-      {loading && <p className="text-blue-500">Loading...</p>}
-      {success && <p className="text-green-500">{success}</p>}
-      {error && <p className="text-red-500">{error}</p>}
+      {loading && <p className="text-blue-500" data-testid="loading">Loading...</p>}
+      {success && <p className="text-green-500" data-testid="success">{success}</p>}
+      {error && <p className="text-red-500" data-testid="error">{error}</p>}
         <div className="mb-4">
           <label htmlFor="origem" className="block text-gray-700 font-semibold mb-2">{es ? language.origin : 'Origem'}:</label>
           <select
+            data-testid="origem"
             id="origem"
             value={origem}
             onChange={(e) => setOrigem(Number(e.target.value))}
@@ -116,6 +117,7 @@ const CreateFlight = () => {
         <div className="mb-4">
           <label htmlFor="destino" className="block text-gray-700 font-semibold mb-2">{es ? language.destination : 'Destino'}:</label>
           <select
+            data-testid="destino"
             id="destino"
             value={destino}
             onChange={(e) => setDestino(Number(e.target.value))}
@@ -132,6 +134,7 @@ const CreateFlight = () => {
         <div className="mb-4">
           <label htmlFor="dataHoraPartida" className="block text-gray-700 font-semibold mb-2">{es ? language.date_start : 'Data e Hora de Partida'}:</label>
           <input
+            data-testid="dataHoraPartida"
             type="datetime-local"
             id="dataHoraPartida"
             value={dataHoraPartida}
@@ -143,6 +146,7 @@ const CreateFlight = () => {
           <label htmlFor="dataHoraChegada" className="block text-gray-700 font-semibold mb-2">{es ? language.date_end : 'Data e Hora de Chegada'}:</label>
           <input
             type="datetime-local"
+            data-testid="dataHoraChegada"
             id="dataHoraChegada"
             value={dataHoraChegada}
             onChange={(e) => setDataHoraChegada(e.target.value)}
@@ -152,6 +156,7 @@ const CreateFlight = () => {
         <div className="mb-4">
           <label htmlFor="status" className="block text-gray-700 font-semibold mb-2">{es ? language.status : 'Status'}:</label>
           <select
+            data-testid="status"
             id="status"
             value={status}
             onChange={(e) => setStatus(e.target.value)}
@@ -168,6 +173,7 @@ const CreateFlight = () => {
         <div className="mb-4">
           <label htmlFor="plane" className="block text-gray-700 font-semibold mb-2">{es ? language.plane : 'Aeronave'}:</label>
           <select
+            data-testid="plane"
             id="plane"
             value={plane}
             onChange={(e) => setPlane(Number(e.target.value))}
@@ -182,6 +188,7 @@ const CreateFlight = () => {
           </select>
         </div>
         <button
+          data-testid="create-flight"
           type="submit"
           className="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 rounded-md"
         >
