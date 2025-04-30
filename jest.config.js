@@ -9,5 +9,7 @@ module.exports = {
   },
   transformIgnorePatterns: [
     "node_modules/(?!@babel/runtime)" 
-  ]
+  ],
+  coverageDirectory: "coverage", 
+  coverageReporters: ["json", "lcov", "text", "clover"], 
 };
